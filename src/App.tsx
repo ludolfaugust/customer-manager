@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import { Customers } from './components/customers/Customers';
+import { CustomerForm } from './components/NewCustomer/CustomerForm';
+
+
+
+
+const App: React.FC = () => {
+  const customers = [
+    {
+      id: "c1",
+      firstName: "Mike",
+      lastName: "Moleskine",
+      date: new Date(2020, 8, 15),
+      amount: 605.54,
+      item: "Vanilla Ice Cream",
+    },
+    {
+      id: "c2",
+      firstName: "Mikki",
+      lastName: "Zoolander",
+      date: new Date(2021, 8, 23),
+      amount: 905.87,
+      item: "Vanilla Ice Cream",
+    },
+    {
+      id: "c3",
+      firstName: "Mitchel",
+      lastName: "Marks",
+      date:new Date(2022, 8, 2),
+      amount:769.54,
+      item: "Vanilla Ice Cream",
+    },
+    {
+      id: "c1",
+      firstName: "Mike",
+      lastName: "Moleskine",
+      date: new Date(2020, 8, 15),
+      amount: 605.54,
+      item: "Vanilla Ice Cream",
+    },
+    {
+      id: "c2",
+      firstName: "Mikki",
+      lastName: "Zoolander",
+      date: new Date(2021, 8, 23),
+      amount: 905.87,
+      item: "Vanilla Ice Cream",
+    },
+    {
+      id: "c3",
+      firstName: "Mitchel",
+      lastName: "Marks",
+      date:new Date(2022, 8, 2),
+      amount:769.54,
+      item: "Vanilla Ice Cream",
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div className='background'>
+      <div className="App">
+        <CustomerForm />
+        <Customers customers={customers} />
+        
+      </div>
+    </div> 
+    );
 }
 
 export default App;
