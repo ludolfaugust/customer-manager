@@ -19,6 +19,7 @@ const CustomerWrapper = styled.div`
 
   @media (min-width: 580px) {
     width: 40rem;
+    margin: 3rem auto;
     
   }
 

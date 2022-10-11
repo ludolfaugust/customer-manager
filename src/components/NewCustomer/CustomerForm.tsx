@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -10,9 +10,7 @@ const Title = styled.h1`
 const Form = styled.form`
     background-color: #50808E;
     padding: 1rem;
-    margin: 1rem auto;
     color: white;
-    gap: 1rem;
     border-radius: 2px;
     display: flex;
     flex-wrap: wrap;
@@ -20,7 +18,8 @@ const Form = styled.form`
     align-items: center;
     max-height: 40rem;
     @media (min-width: 580px) {
-    width: 20rem;    
+    width: 20rem; 
+    margin: 3rem auto;   
     }
 `;
 const InputWrapper = styled.div`
@@ -57,7 +56,19 @@ const Input = styled.input`
 `;
 
 
-export const CustomerForm = () => {
+export const CustomerForm: React.FC = () => {
+
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [item, setItem] = useState("");
+    const [amount, setAmount] = useState();
+    const [date, setDate] = useState();
+
+
+    const getFirstName = (event: any) => {
+        setFirstName(event.target.value)
+    }
+
   return (
     <>
         <Form>
@@ -65,23 +76,23 @@ export const CustomerForm = () => {
                 <InputWrapper>
                     <InputField>
                         <Label>First Name</Label>
-                            <Input type="text" />
+                            <Input type="text" value={firstName} onChange={firstNameChangeHandler}/>
                     </InputField>
                     <InputField>
                         <Label>Last Name</Label>
-                            <Input type="text" />
+                            <Input type="text" value={lastName} onChange={lastNameChangeHandler} />
                     </InputField>
                     <InputField>
                         <Label>Item</Label>
-                            <Input type="text" />
+                            <Input type="text" value={item} onChange={itemChangeHandler} />
                     </InputField>
                     <InputField>
                         <Label>Amount</Label>
-                            <Input type="number" min="10" step="1" />
+                            <Input type="number" min="10" step="1" value={amount} onChange={amountChangeHandler} />
                     </InputField>
                     <InputField>
                         <Label>Purchase Date</Label>
-                            <Input type="date" min="2019-01-01" max="2022-12-31" />
+                            <Input type="date" min="2019-01-01" max="2022-12-31" value={date} onChange={dateChangeHandler} />
                     </InputField>
                 </InputWrapper>
         </Form>
