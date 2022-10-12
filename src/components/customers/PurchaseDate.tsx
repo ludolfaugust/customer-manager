@@ -8,6 +8,8 @@ interface Props {
 const DateWrapper = styled.div`
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 border: 2px dotted white;
 padding: 1rem;
 width: 7rem;
