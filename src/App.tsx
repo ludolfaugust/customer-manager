@@ -31,7 +31,7 @@ const dummyData = [
     item: "Vanilla Ice Cream",
   },
   {
-    id: "c1",
+    id: "c4",
     firstName: "Mike",
     lastName: "Moleskine",
     date: new Date(2020, 8, 15),
@@ -39,7 +39,7 @@ const dummyData = [
     item: "Vanilla Ice Cream",
   },
   {
-    id: "c2",
+    id: "c5",
     firstName: "Mikki",
     lastName: "Zoolander",
     date: new Date(2021, 8, 23),
@@ -47,7 +47,7 @@ const dummyData = [
     item: "Vanilla Ice Cream",
   },
   {
-    id: "c3",
+    id: "c6",
     firstName: "Mitchel",
     lastName: "Marks",
     date:new Date(2022, 8, 2),

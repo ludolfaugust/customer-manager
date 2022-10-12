@@ -40,6 +40,7 @@ console.log(customers)
             firstName={customer.firstName} 
             amount={customer.amount} 
             item={customer.item}
+            key={customer.id} 
             id={customer.id} 
             lastName={customer.lastName} 
             date={customer.date} 
