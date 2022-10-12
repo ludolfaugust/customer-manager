@@ -1,6 +1,6 @@
 import React from 'react';
 import { ICustomer } from '../types/customer';
-import styled, { StyledComponent } from 'styled-components';
+import styled from 'styled-components';
 import { PurchaseDate } from './PurchaseDate';
 
 
@@ -23,10 +23,6 @@ const FirstName = styled.div `
  width: 20%;
  gap: 1rem;
  padding-right: 1rem;
- 
-`;
-const LastName = styled.div `
-    
  
 `;
 
@@ -53,6 +49,7 @@ const Amount = styled.div `
 
     color: #50808e;
     font-weight: bold;
+    width: 25%;
 
 `;
 
@@ -69,7 +66,7 @@ export const CustomerItem: React.FC<ICustomer> = (props) => {
                 <Item> {props.item}</Item>
             </Container>
         <FirstName>{props.firstName} {props.lastName}</FirstName>
-        <LastName></LastName>
+        
 
     </CustomerItemWrapper>
   )

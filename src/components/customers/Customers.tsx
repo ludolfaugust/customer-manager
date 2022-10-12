@@ -28,6 +28,9 @@ const CustomerWrapper = styled.div`
 
 
 export const Customers:React.FC<Props> = ({customers}) => {
+
+console.log(customers)
+
   return (
     <>
       <CustomerWrapper>

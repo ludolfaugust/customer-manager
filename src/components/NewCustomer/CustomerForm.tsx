@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 
+
+
+interface Props {
+    onSaveCustomer: (enteredCustomerData: any) => void;
+}
+
+
 const Title = styled.h1`
     font-size: 1.5rem;
 
@@ -55,23 +62,71 @@ const Input = styled.input`
 
 `;
 
+const Button = styled.button`
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #fff;
+    background-color: #69a297;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
 
-export const CustomerForm: React.FC = () => {
+    :hover, :active{
+        background-color: #50808E;
+
+    }
+`;
+
+
+export const CustomerForm: React.FC<Props> = (props) => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [item, setItem] = useState("");
-    const [amount, setAmount] = useState();
-    const [date, setDate] = useState();
+    const [amount, setAmount] = useState("");
+    const [date, setDate] = useState("");
 
 
-    const getFirstName = (event: any) => {
-        setFirstName(event.target.value)
+    const firstNameChangeHandler = (event: any) => {
+         setFirstName(event.target?.value)   
     }
+    const lastNameChangeHandler = (event: any) => {
+        setLastName(event.target.value)
+    }
+    const itemChangeHandler = (event: any) => {
+        setItem(event.target.value)
+    }
+    const amountChangeHandler = (event: any) => {
+        setAmount(event.target.value)
+    }
+    const dateChangeHandler = (event: any) => {
+        setDate(event.target.value)
+    }
+
+    const submitHandler = (event: React.FormEvent) => {
+        event.preventDefault();
+
+        const customerData = {
+            firstName: firstName,
+            lastName: lastName,
+            item: item,
+            amount: amount,
+            date: new Date(date),
+        }
+        props.onSaveCustomer(customerData)
+
+        setFirstName("");
+        setLastName("");
+        setItem("");
+        setAmount("");
+        setDate("");
+    }
+
 
   return (
     <>
-        <Form>
+        <Form onSubmit={submitHandler}>
             <Title>Customer Purchases</Title>
                 <InputWrapper>
                     <InputField>
@@ -95,6 +150,7 @@ export const CustomerForm: React.FC = () => {
                             <Input type="date" min="2019-01-01" max="2022-12-31" value={date} onChange={dateChangeHandler} />
                     </InputField>
                 </InputWrapper>
+            <Button type="submit">Add Customer</Button>
         </Form>
     </>
   )
